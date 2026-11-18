@@ -1,0 +1,14 @@
+User-agent: *
+Allow: /
+Allow: /Default.aspx
+Allow: /About.aspx
+Allow: /HowItWorks.aspx
+Allow: /Contact.aspx
+Allow: /Account/Login.aspx
+Allow: /Account/RegisterDonor.aspx
+Allow: /Account/RegisterNGO.aspx
+Allow: /Account/RegisterVolunteer.aspx
+Disallow: /Admin/
+Disallow: /App_Data/
+
+Sitemap: http://localhost/FoodBridge/Sitemap.xml

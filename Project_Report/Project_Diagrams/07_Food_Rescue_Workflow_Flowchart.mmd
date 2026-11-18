@@ -1,0 +1,16 @@
+flowchart TD
+    START(["Start Food Rescue Process"]) --> STEP1["Donor Logs In & Enters Surplus Food Details"]
+    STEP1 --> CHK_EXP{"Is ExpiryDate >= Today\nand >= PrepDate?"}
+    CHK_EXP -- "No (Expired)" --> REJ_EXP["Reject Submission:\nDisplay Expiry Validation Error"]
+    CHK_EXP -- "Yes (Fresh)" --> SAVE_DON["Save FoodDonation (Status = Pending)\n& Log DonationTransaction"]
+    SAVE_DON --> ADM_REV{"Admin Reviews Donation"}
+    ADM_REV -- "Reject" --> MARK_REJ["Update Status = Rejected"]
+    ADM_REV -- "Approve" --> MARK_APP["Update Status = Approved\n(Listed on AvailableFood.aspx)"]
+    MARK_APP --> NGO_REQ["Verified NGO Submits FoodRequest"]
+    NGO_REQ --> CHK_QTY{"Is RequestedQty <=\nAvailableQuantity?"}
+    CHK_QTY -- "No" --> REJ_QTY["Block Over-Allocation:\nShow Available Stock Error"]
+    CHK_QTY -- "Yes" --> RES_QTY["Deduct AvailableQuantity in Transaction\n& Save Request (Status = Pending)"]
+    RES_QTY --> ADM_ASSIGN["Admin Approves Request &\nAssigns Available Volunteer"]
+    ADM_ASSIGN --> VOL_ACT["Volunteer Accepts Task -> Collects Food\n-> Delivers to NGO Receiver"]
+    VOL_ACT --> CONF_DEL["Volunteer Confirms 'Successfully Delivered'\n-> Insert FoodDelivery Record\n-> Update Rescued Food Statistics"]
+    CONF_DEL --> FINISH(["End Process"])

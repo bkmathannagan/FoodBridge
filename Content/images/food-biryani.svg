@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 80" width="120" height="80">
+  <rect width="120" height="80" rx="10" fill="#DCFCE7"/>
+  <circle cx="60" cy="42" r="24" fill="#15803D"/>
+  <path d="M46 42 Q60 28 74 42 Q60 56 46 42 Z" fill="#F59E0B"/>
+  <text x="60" y="73" font-family="Segoe UI, Arial" font-size="10" font-weight="bold" fill="#166534" text-anchor="middle">FRESH MEALS</text>
+</svg>

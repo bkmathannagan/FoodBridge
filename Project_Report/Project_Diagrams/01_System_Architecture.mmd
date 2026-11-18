@@ -1,0 +1,39 @@
+flowchart TB
+    subgraph PL["Presentation Layer (ASP.NET Web Forms - .aspx / Site.Master)"]
+        PUB["Public Pages (Default, About, HowItWorks, Contact)"]
+        ACC["Account Module (Login, RegisterDonor/NGO/Volunteer, ForgotPassword)"]
+        ADM["Admin Portal (Dashboard, ManageDonors/NGOs/Volunteers/Donations/Requests, Assign, Reports, Settings)"]
+        DON["Donor Portal (Dashboard, AddDonation, MyDonations, DonationDetails, Profile)"]
+        NGO["NGO Portal (Dashboard, AvailableFood, FoodRequest, RequestHistory, Profile)"]
+        VOL["Volunteer Portal (Dashboard, MyTasks, UpdateDelivery, TaskDetails)"]
+    end
+
+    subgraph BLL["Business Logic Layer (VB.NET Classes - /BLL)"]
+        DBLL["DonorBLL.vb"]
+        NBLL["NGOBLL.vb"]
+        VBLL["VolunteerBLL.vb"]
+        FBLL["DonationBLL.vb"]
+        RBLL["RequestBLL.vb"]
+        ABLL["AssignmentBLL.vb"]
+        RPBLL["ReportBLL.vb"]
+    end
+
+    subgraph DAL["Data Access Layer (VB.NET + OleDb - /DAL)"]
+        DBC["DBConnection.vb (Parameterized OleDb + SHA-256 + Transactions)"]
+        DDAL["DonorDAL.vb"]
+        NDAL["NGODAL.vb"]
+        VDAL["VolunteerDAL.vb"]
+        FDAL["DonationDAL.vb"]
+        RDAL["RequestDAL.vb"]
+        ADAL["AssignmentDAL.vb"]
+        RPDAL["ReportDAL.vb"]
+    end
+
+    subgraph DB["Database Layer (/App_Data)"]
+        MDB[("MS Access Database\nFood.mdb (16 Tables)")]
+    end
+
+    PL --> BLL
+    BLL --> DAL
+    DAL --> DBC
+    DBC --> MDB

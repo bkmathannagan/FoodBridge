@@ -1,0 +1,30 @@
+flowchart TB
+    DONOR["Food Donor"] --> P1("1.0 Authentication &\nRole Management")
+    NGO["NGO / Receiver"] --> P1
+    VOL["Volunteer"] --> P1
+    ADMIN["Administrator"] --> P1
+    P1 <--> DS1[("D1: Admin, Donors,\nNGOs, Volunteers,\nUserLogin")]
+
+    DONOR --> P2("2.0 Food Donation\nRegistration &\nExpiry Validation")
+    ADMIN --> P2
+    P2 <--> DS2[("D2: FoodDonations,\nFoodCategories, Cities")]
+
+    NGO --> P3("3.0 Food Request &\nQuantity Allocation")
+    ADMIN --> P3
+    P3 <--> DS2
+    P3 <--> DS3[("D3: FoodRequests")]
+
+    ADMIN --> P4("4.0 Volunteer\nAssignment &\nDispatch")
+    P4 <--> DS3
+    P4 <--> DS4[("D4: VolunteerAssignments")]
+
+    VOL --> P5("5.0 Food Collection &\nDelivery Confirmation")
+    P5 <--> DS4
+    P5 <--> DS5[("D5: FoodDelivery,\nDonationTransactions")]
+
+    ADMIN --> P6("6.0 Reports & Analytics\nEngine")
+    DS1 --> P6
+    DS2 --> P6
+    DS3 --> P6
+    DS4 --> P6
+    DS5 --> P6

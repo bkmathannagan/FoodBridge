@@ -1,0 +1,1 @@
+Uploads directory for food donation photos.

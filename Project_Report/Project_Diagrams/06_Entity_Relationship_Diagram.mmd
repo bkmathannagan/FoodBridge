@@ -1,0 +1,73 @@
+erDiagram
+    DONORS ||--o{ FOODDONATIONS : "submits"
+    NGOS ||--o{ FOODREQUESTS : "requests"
+    FOODDONATIONS ||--o{ FOODREQUESTS : "allocated_to"
+    FOODDONATIONS ||--o{ VOLUNTEERASSIGNMENTS : "picked_up_in"
+    FOODREQUESTS ||--o{ VOLUNTEERASSIGNMENTS : "fulfilled_by"
+    VOLUNTEERS ||--o{ VOLUNTEERASSIGNMENTS : "assigned_to"
+    VOLUNTEERASSIGNMENTS ||--o| FOODDELIVERY : "confirmed_in"
+    FOODDONATIONS ||--o{ DONATIONTRANSACTIONS : "logged_in"
+
+    DONORS {
+        int DonorID PK
+        string DonorName
+        string DonorType
+        string ContactPerson
+        string MobileNumber
+        string EmailAddress
+        string City
+        string AccountStatus
+    }
+    NGOS {
+        int NGOID PK
+        string OrganizationName
+        string RegistrationNumber
+        string ContactPerson
+        string MobileNumber
+        int NumberOfBeneficiaries
+        string VerificationStatus
+    }
+    VOLUNTEERS {
+        int VolunteerID PK
+        string VolunteerName
+        string MobileNumber
+        string City
+        string AvailabilityStatus
+        string AccountStatus
+    }
+    FOODDONATIONS {
+        int DonationID PK
+        int DonorID FK
+        string FoodName
+        string FoodCategory
+        string FoodType
+        double FoodQuantity
+        double AvailableQuantity
+        datetime ExpiryDate
+        string ApprovalStatus
+        string CollectionStatus
+    }
+    FOODREQUESTS {
+        int RequestID PK
+        int NGOID FK
+        int DonationID FK
+        double RequestedQuantity
+        int NumberOfBeneficiaries
+        string RequestStatus
+    }
+    VOLUNTEERASSIGNMENTS {
+        int TaskID PK
+        int DonationID FK
+        int RequestID FK
+        int VolunteerID FK
+        double AssignedQuantity
+        string TaskStatus
+    }
+    FOODDELIVERY {
+        int DeliveryID PK
+        int TaskID FK
+        double DeliveredQuantity
+        string ReceivedByPerson
+        string DeliveryCondition
+        datetime DeliveryTimestamp
+    }

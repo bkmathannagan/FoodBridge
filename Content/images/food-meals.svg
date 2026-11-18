@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 80" width="120" height="80">
+  <rect width="120" height="80" rx="10" fill="#DCFCE7"/>
+  <circle cx="60" cy="40" r="22" fill="#166534"/>
+  <circle cx="60" cy="40" r="14" fill="#86EFAC"/>
+  <text x="60" y="73" font-family="Segoe UI, Arial" font-size="10" font-weight="bold" fill="#166534" text-anchor="middle">COOKED FOOD</text>
+</svg>

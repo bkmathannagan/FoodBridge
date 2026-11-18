@@ -1,0 +1,12 @@
+flowchart LR
+    DONOR["Food Donor"] -- "Surplus Food Details,\nPickup Address, Expiry" --> SYS(("0.0\nFoodBridge\nFood Rescue &\nDonation System"))
+    SYS -- "Approval Status,\nVolunteer & Collection Info" --> DONOR
+
+    NGO["NGO / Charitable Trust"] -- "Registration, Food Request,\nBeneficiary Count" --> SYS
+    SYS -- "Available Food Listing,\nDelivery Confirmation" --> NGO
+
+    VOL["Rescue Volunteer"] -- "Availability, Task Acceptance,\nCollection & Delivery Updates" --> SYS
+    SYS -- "Assigned Pickup & Drop Tasks,\nContact Sheet" --> VOL
+
+    ADMIN["Administrator"] -- "Donation Verification, Request Approval,\nVolunteer Dispatch, Report Filters" --> SYS
+    SYS -- "Live Dashboard Metrics,\n15 Analytical Reports, Excel Export" --> ADMIN

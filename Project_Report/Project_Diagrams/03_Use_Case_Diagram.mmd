@@ -1,0 +1,32 @@
+flowchart LR
+    Donor(["Food Donor"])
+    NGO(["NGO / Receiver"])
+    Volunteer(["Rescue Volunteer"])
+    Admin(["System Administrator"])
+
+    subgraph FB["FoodBridge System Boundary"]
+        UC1("Register & Authenticate Account")
+        UC2("Submit / Edit / Cancel Surplus Food Donation")
+        UC3("Verify & Approve/Reject Food Donations")
+        UC4("Browse & Filter Available Non-Expired Food")
+        UC5("Submit Food Request & Reserve Quantity")
+        UC6("Approve Request & Assign Volunteer")
+        UC7("Accept Task & Collect Food from Donor")
+        UC8("Deliver Food to NGO & Confirm Receipt")
+        UC9("Generate 15 Reports & Export to Excel")
+        UC10("Manage Categories, Cities, Alerts & Feedback")
+    end
+
+    Donor --> UC1
+    Donor --> UC2
+    NGO --> UC1
+    NGO --> UC4
+    NGO --> UC5
+    Volunteer --> UC1
+    Volunteer --> UC7
+    Volunteer --> UC8
+    Admin --> UC1
+    Admin --> UC3
+    Admin --> UC6
+    Admin --> UC9
+    Admin --> UC10

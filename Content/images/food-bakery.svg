@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 80" width="120" height="80">
+  <rect width="120" height="80" rx="10" fill="#FEF3C7"/>
+  <rect x="34" y="25" width="52" height="30" rx="8" fill="#D97706"/>
+  <text x="60" y="73" font-family="Segoe UI, Arial" font-size="10" font-weight="bold" fill="#92400E" text-anchor="middle">BAKERY ITEMS</text>
+</svg>
